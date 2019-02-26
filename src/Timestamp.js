@@ -45,7 +45,9 @@ Timestamp.STATE = {
     .value(''),
   hasTitle: Config.bool().value(false),
   time: Config.number().value(0),
-  title: Config.string().value(undefined),
+  title: Config.string()
+    .internal(true)
+    .value(undefined),
 };
 
 Soy.register(Timestamp, templates);
