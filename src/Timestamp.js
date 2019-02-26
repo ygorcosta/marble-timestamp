@@ -17,9 +17,9 @@ class Timestamp extends Component {
     if (isServerSide()) {
       return;
     }
-    if (this.createdAt) {
+    if (this.time) {
       relativeTimeSyntax('timestamp');
-      const timestamp = parseInt(this.createdAt, 10);
+      const timestamp = parseInt(this.time, 10);
       this.label = moment(timestamp).fromNow(true);
       if (this.hasTitle) {
         const timezone = moment.tz.guess();
@@ -38,12 +38,12 @@ class Timestamp extends Component {
  */
 Timestamp.STATE = {
   childElementClasses: Config.string().value(''),
-  createdAt: Config.number().value(0),
   elementClasses: Config.string().value(''),
   label: Config.string()
     .internal(true)
     .value(''),
   hasTitle: Config.bool().value(false),
+  time: Config.number().value(0),
   title: Config.string().value(undefined),
 };
 
