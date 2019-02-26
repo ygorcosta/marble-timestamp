@@ -18,7 +18,7 @@ class Timestamp extends Component {
       return;
     }
     if (this.time) {
-      updateMomentSyntax('timestamp');
+      updateMomentSyntax(this.type);
       const timestamp = parseInt(this.time, 10);
       this.label = moment(timestamp).fromNow(true);
       if (this.hasTitle) {
@@ -26,7 +26,6 @@ class Timestamp extends Component {
         this.title = moment(timestamp)
           .tz(timezone)
           .format('MMM DD YYYY, h:mma (UTCZ)');
-        console.log(this.title);
       }
     }
   }
@@ -48,6 +47,8 @@ Timestamp.STATE = {
   title: Config.string()
     .internal(true)
     .value(undefined),
+  type: Config.oneOf(['timestamp', 'duration'])
+    .value('timestamp'),
 };
 
 Soy.register(Timestamp, templates);
