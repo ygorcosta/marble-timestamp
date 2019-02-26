@@ -18,7 +18,6 @@ class Timestamp extends Component {
       return;
     }
     if (this.time) {
-      console.log(this.time);
       updateMomentSyntax('timestamp');
       const timestamp = parseInt(this.time, 10);
       this.label = moment(timestamp).fromNow(true);
@@ -27,6 +26,7 @@ class Timestamp extends Component {
         this.title = moment(timestamp)
           .tz(timezone)
           .format('MMM DD YYYY, h:mma (UTCZ)');
+        console.log(this.title);
       }
     }
   }
