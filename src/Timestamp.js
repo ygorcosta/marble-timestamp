@@ -18,7 +18,8 @@ class Timestamp extends Component {
       return;
     }
     if (this.time) {
-      relativeTimeSyntax('timestamp');
+      console.log(this.time);
+      updateMomentSyntax('timestamp');
       const timestamp = parseInt(this.time, 10);
       this.label = moment(timestamp).fromNow(true);
       if (this.hasTitle) {
